@@ -1,0 +1,161 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>dweet.io client</title>
+    <style>
+	body {
+		font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+		font-size: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+	#main {
+		text-align: center;
+		overflow: hidden;
+		min-width: 190px;
+		
+		max-width: 500px;
+		max-height: 500px;
+		padding: 5px;
+	}
+
+	#fullInfo{
+		min-width: 200px;
+		min-height: 50px;
+	}
+	#infoHead{
+		position: fixed;
+		width: 90%;
+		height: 30px;
+		top: 0px;
+		padding: 5px;
+
+		background-color: #ffffff;
+		border-bottom: 1px solid black;
+	}
+	#back{
+		font-weight: 900;
+		border: none;
+		padding: 5px;
+		padding-left: 10px;
+		padding-right: 10px;
+		background-color: #3498db;
+		
+	}
+	.date{
+		float: right;
+		font-size: 80%;
+		color: #3498db;
+		width: 100%;
+		margin-top: 5%;
+	}
+	.data{
+
+	}
+	#data {
+		min-width: 250px;
+		min-height: 100px;
+		overflow: scroll;
+	}
+	#dataShow{
+		margin-top: 40px;
+	}
+	.key{
+		font-weight: 500;
+	}
+	#keyName{
+		font-weight: 600;
+	}
+	.moreArrow {
+		font-weight: bold;
+		cursor: pointer;
+		float: right;
+	}
+	.remove{
+		cursor: pointer;
+		width: 16px;
+		height: 16px;
+		float: left;
+		margin-right: 5px;
+		margin-top: 5px;
+	}
+	#add {
+		text-align:center;
+	}
+	#addBut {
+		cursor: pointer;
+		
+		margin-left: -10px;
+		margin-bottom: -7px;
+	}
+	#addText {
+		width: 70%;
+		transition: .5s;
+	}
+
+	::-webkit-scrollbar {
+		width: 2px;
+		height: 100px;
+	}
+	::-webkit-scrollbar-track-piece  {
+		background-color: #666666;
+		-webkit-border-radius: 10px;
+		height: 20px;
+	}
+	::-webkit-scrollbar-button:start:decrement,
+	::-webkit-scrollbar-button:end:increment  {
+		height: 150px;
+		display: block;
+		background-color: transparent;
+	}
+	::-webkit-scrollbar-thumb:vertical {
+		height: 20px;
+		background-color: #3498db;
+		
+		-webkit-border-radius: 6px;
+	}
+	
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+    <script src="popup.js"></script>
+  </head>
+  <body>
+	<div id="keyInfo">
+		<div id="main">
+<!-- 			<span id="top" class="header"><b>KEYS</b></span>
+			<br /> -->
+<!-- 			<span class="key" style="float:left;">KEY</span>
+			<span class="moreArrow">&rarr;</span>
+			<br /> -->
+			
+		</div>
+		<div id="add">
+		<input id="addText"></input><img id="addBut" src="add.png" width="24" height="24">
+
+		</div>
+		
+	</div>
+	<div id="fullInfo" style="display:none;">
+		<div id="infoHead">
+			<button id="back">&larr;</button>
+			<span id="keyName"></span>
+		</div>
+		<div id="dataShow">
+			
+		</div>
+		<textarea id="data" style="display:none" readonly></textarea>
+	</div>
+  </body>
+</html>
+
