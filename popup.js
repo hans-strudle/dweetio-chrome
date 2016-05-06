@@ -138,6 +138,7 @@ function writeKeyList(){
 
 document.addEventListener('DOMContentLoaded', function() {
 	var back = document.getElementById('back')
+	var raw = document.getElementById('raw')
 	var addBut = document.getElementById('addBut')
 	addBut.onclick = function(){
 		if (!addBut.previousElementSibling.value) { // is it empty?
@@ -184,7 +185,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		back.parentElement.parentElement.style.display = 'none'
 		document.getElementById('keyInfo').style.display = ''
 	}
-	
+	raw.onclick = function(){
+		clearTimeout(timeO)
+		document.getElementById('data').style.display = ''
+	}
 	
 	writeKeyList()
 });
