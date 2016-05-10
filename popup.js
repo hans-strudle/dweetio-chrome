@@ -86,7 +86,9 @@ function getAndShow(key){
 						'</span><br />' + JSONtoPrettyHTML(JSON.stringify(e.content))
 				})
 			} else {
-				dataShow.innerHTML += '<span id="error">ERROR NO DATA</span>'
+				if (dataShow.childElementCount == 0){
+					dataShow.innerHTML += '<span id="error">ERROR NO DATA</span>'
+				}
 			}
         }
     }
@@ -185,9 +187,16 @@ document.addEventListener('DOMContentLoaded', function() {
 		back.parentElement.parentElement.style.display = 'none'
 		document.getElementById('keyInfo').style.display = ''
 	}
+	
 	raw.onclick = function(){
-		clearTimeout(timeO)
-		document.getElementById('data').style.display = ''
+		
+		if (document.getElementById('data').style.display == ''){
+			document.getElementById('dataShow').style.display = ''
+			document.getElementById('data').style.display = 'none'
+		} else {
+			document.getElementById('dataShow').style.display = 'none'
+			document.getElementById('data').style.display = ''
+		}
 	}
 	
 	writeKeyList()
